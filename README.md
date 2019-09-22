@@ -5,4 +5,11 @@
 
 ##搭建
 - 生成文件，检查pom文件引入全部依赖
+- 测试helloController进行访问测试
 
+#开发
+- pom中引入数据库驱动、连接池等依赖
+- 配置数据库连接池
+- 引入mybatis的配置文件
+- 创建DataSource及配置
+- SQLSessionFactory的配置
