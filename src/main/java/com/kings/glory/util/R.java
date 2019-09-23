@@ -15,6 +15,12 @@ public class R<T> implements Serializable {
 
     private T datas;
 
+    public R(String code, String msg, T datas) {
+        this.code = code;
+        this.msg = msg;
+        this.datas = datas;
+    }
+
     public String getCode() {
         return code;
     }
@@ -38,4 +44,5 @@ public class R<T> implements Serializable {
     public void setDatas(T datas) {
         this.datas = datas;
     }
+
 }

@@ -1,6 +1,5 @@
 package com.kings.glory.util;
 
-import com.alibaba.fastjson.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,19 +38,6 @@ public class PagedResult<T> implements Serializable {
         this.resultList = resultList;
     }
 
-
-    /*public PagedResult<JSONObject> getJsonObjectPagedResult(PagedResult pagedResult, int pageIndex, int pageSize, Query query, List<JSONObject> objectList, MongoTemplate mongoTemplate, String tableName) {
-        objectList.forEach(paged -> paged.put(QueryUtils.ID, paged.getString(QueryUtils.ID)));
-        Long count = mongoTemplate.count(query, Long.class,tableName);
-        pagedResult.setResultList(objectList);
-        Page page=new Page();
-        page.setPageSize(pageSize);
-        page.setCurPage(pageIndex);
-        page.setTotalCount(count);
-        page.setTotalPages(count.intValue() % pageSize == 0 ? count.intValue() / pageSize : count.intValue() / pageSize + 1);
-        pagedResult.setPage(page);
-        return pagedResult;
-    }*/
 
 }
 

@@ -4,8 +4,8 @@ import com.github.pagehelper.PageInfo;
 import com.kings.glory.entity.Position;
 import com.kings.glory.service.IPositionService;
 import com.kings.glory.util.Page;
-import com.kings.glory.util.PagedResult;
 import com.kings.glory.util.R;
+import com.kings.glory.util.StatusCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,21 +34,13 @@ public class PositionController {
     @ApiOperation(value = "find",notes = "分页查询数据")
     public R<PageInfo<Position>> findPage(@RequestBody Position position, @PathParam("") Page page){
         PageInfo<Position> positionPageInfo= positionService.findAllByPage(position,page);
-        R r = new R();
-        r.setCode("1");
-        r.setMsg("成功");
-        r.setDatas(positionPageInfo);
-        return r;
+        return new R(StatusCode.SUCCESS.getCode(), StatusCode.SUCCESS.getMessage(), positionPageInfo);
     }
 
     @RequestMapping(value = "/findAllList",method = RequestMethod.POST)
     @ApiOperation(value = "find",notes = "查询全部数据")
     public R<List<Position>> findAll(){
         List<Position> positions = positionService.findAll();
-        R r = new R();
-        r.setCode("1");
-        r.setMsg("成功");
-        r.setDatas(positions);
-        return r;
+        return new R(StatusCode.SUCCESS.getCode(), StatusCode.SUCCESS.getMessage(), positions);
     }
 }
