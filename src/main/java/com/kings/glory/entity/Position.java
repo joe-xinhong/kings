@@ -4,9 +4,13 @@ import java.util.Date;
 
 public class Position {
     private Integer wayId;
+
     private String wayName;
+
     private Integer priority;
+
     private Date createTime;
+
     private Date lastEditTime;
 
     public Integer getWayId() {
