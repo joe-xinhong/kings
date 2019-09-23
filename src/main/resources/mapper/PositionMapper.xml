@@ -208,4 +208,72 @@
       last_edit_time = #{lastEditTime,jdbcType=TIMESTAMP}
     where way_id = #{wayId,jdbcType=INTEGER}
   </update>
+  <!--新定义-->
+  <sql id="find_columns">
+    way_id as wayId,way_name as wayName,priority as priority,create_time as createTime,
+    last_edit_time as lastEditTime
+  </sql>
+  <sql id="find_detail">
+    way_id as wayId,way_name as wayName,priority as priority,create_time as createTime,
+    last_edit_time as lastEditTime
+  </sql>
+  <sql id="condition">
+    <if test="wayId != null">
+      and way_id = #{wayId,jdbcType=INTEGER }
+    </if>
+    <if test="wayName != null">
+      and way_name =#{wayName,jdbcType=VARCHAR}
+    </if>
+    <if test="priority != null">
+      and priority = #{priority,jdbcType=INTEGER}
+    </if>
+    <if test="createTime != null">
+      create_time =#{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="lastEditTime != null">
+      last_edit_time=#{lastEditTime,jdbcType=TIMESTAMP}
+    </if>
+  </sql>
+  <sql id="page_condition">
+    <if test="arg0.wayId != null">
+      and way_id = #{arg0.wayId,jdbcType=INTEGER}
+    </if>
+    <if test="arg0.wayName != null">
+      and way_name =#{arg0.wayName,jdbcType=VARCHAR}
+    </if>
+    <if test="arg0.priority != null">
+      and priority = #{arg0.priority,jdbcType=INTEGER}
+    </if>
+    <if test="arg0.createTime != null">
+      create_time =#{arg0.createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="arg0.lastEditTime != null">
+      last_edit_time=#{arg0.lastEditTime,jdbcType=TIMESTAMP}
+    </if>
+  </sql>
+  <select id="findPageList" resultType="com.kings.glory.entity.Position">
+    select <include refid="find_columns"></include>
+    from tb_position
+    <where>
+      <include refid="page_condition"></include>
+    </where>
+    order by create_time desc
+    limit #{arg1.startIndex,jdbcType=INTEGER},#{arg1.pageSize,jdbcType=INTEGER}
+  </select>
+  <select id="findPageListCount" resultType="java.lang.Long">
+    select count(1)
+    from tb_position
+    <where>
+      <include refid="page_condition"></include>
+    </where>
+  </select>
+  <select id="findAll" parameterType="com.kings.glory.entity.Position" resultType="com.kings.glory.entity.Position">
+    select <include refid="find_columns"></include>
+    from tb_position
+    <where>
+      <include refid="page_condition"></include>
+    </where>
+    order by create_time desc
+  </select>
+
 </mapper>

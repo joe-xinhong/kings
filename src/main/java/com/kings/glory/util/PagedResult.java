@@ -1,6 +1,7 @@
 package com.kings.glory.util;
 
-import javax.management.Query;
+import com.alibaba.fastjson.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

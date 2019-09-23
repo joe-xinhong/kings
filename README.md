@@ -13,3 +13,8 @@
 - 引入mybatis的配置文件
 - 创建DataSource及配置
 - SQLSessionFactory的配置
+
+
+##问题总结
+- Intellij idea 下@autowired报红线解决(在service加注解@Repository就好)
+- MyBatis 逆向工程生成的.xml文件中经常出现方法id重复，需检查处理

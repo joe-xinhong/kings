@@ -16,7 +16,6 @@ import javax.annotation.Resource;
 */
 @Api(tags = "测试接口")
 @RestController
-@Resource(description = "测试的接口")
 public class HelloController {
 
     @ApiOperation(value="测试接口", notes="测试接口")
