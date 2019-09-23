@@ -1,4 +1,4 @@
-package com.kings.glory;
+package com.kings.glory.util;
 
 import org.junit.Test;
 import org.mybatis.generator.api.MyBatisGenerator;
@@ -13,7 +13,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+* @Description:    使用单元测试生成逆向工程代码
+* @Author:         Joe
+* @CreateDate:     2019/9/23 15:01
+*/
 public class test {
 
     @Test

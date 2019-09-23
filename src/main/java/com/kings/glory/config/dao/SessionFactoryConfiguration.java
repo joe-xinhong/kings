@@ -1,6 +1,5 @@
 package com.kings.glory.config.dao;
 
-import com.mchange.v2.c3p0.DataSources;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -38,6 +37,7 @@ public class SessionFactoryConfiguration {
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource(mybatisConfigFilePath));
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         String packageSearchPath = PathMatchingResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + mapperPath;
+        System.out.println("路径："+packageSearchPath);
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources(packageSearchPath));
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setTypeAliasesPackage(entityPackage);

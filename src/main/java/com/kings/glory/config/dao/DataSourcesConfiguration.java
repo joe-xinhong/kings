@@ -16,7 +16,7 @@ import java.beans.PropertyVetoException;
 //配置spring这里的配置
 @Configuration
 //配置mybatis mapper的扫描路径
-@MapperScan("com.kings.glory.dao")
+@MapperScan("com.kings.glory.mapper")
 public class DataSourcesConfiguration {
     @Value("${jdbc.driver}")
     private String jdbcDriver;
